@@ -1,1 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career - Bangladesh Biggest Platform</title>
 
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #222;
+}
+
+.header {
+    background: #0b1f3a;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 28px;
+}
+
+.header p {
+    margin-top: 8px;
+    color: #dbe7f5;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.section-title h2 {
+    font-size: 26px;
+    color: #0b1f3a;
+}
+
+.section-title p {
+    margin-top: 8px;
+    color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <h1>Career Opportunities</h1>
+    <p>Join Bangladesh Biggest Platform</p>
+</header>
+
+<div class="container">
+
+    <div class="section-title">
+        <h2>Choose Your Career</h2>
+        <p>Select an opportunity below to apply.</p>
+    </div><div class="career-grid">
+
+    <div class="career-card">
+        <h3>Story Writing</h3>
+        <p>Create engaging stories and creative content for our platform.</p>
+        <button onclick="applyNow('Story Writing')">Apply Now</button>
+    </div>
+
+    <div class="career-card">
+        <h3>Story Management</h3>
+        <p>Manage, organize and maintain stories and written content.</p>
+        <button onclick="applyNow('Story Management')">Apply Now</button>
+    </div>
+
+    <div class="career-card">
+        <h3>Website Handling</h3>
+        <p>Help manage website content, pages and daily activities.</p>
+        <button onclick="applyNow('Website Handling')">Apply Now</button>
+    </div>
+
+    <div class="career-card">
+        <h3>Content Management</h3>
+        <p>Manage digital content and keep information organized.</p>
+        <button onclick="applyNow('Content Management')">Apply Now</button>
+    </div>
+
+    <div class="career-card">
+        <h3>Social Media Management</h3>
+        <p>Manage social media content, posts and audience engagement.</p>
+        <button onclick="applyNow('Social Media Management')">Apply Now</button>
+    </div>
+
+    <div class="career-card">
+        <h3>Data Management</h3>
+        <p>Maintain and organize important platform data.</p>
+        <button onclick="applyNow('Data Management')">Apply Now</button>
+    </div>
+
+    </div><style>
+.career-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.career-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border: 1px solid #e5e9ef;
+    transition: 0.3s;
+}
+
+.career-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.career-card h3 {
+    color: #0b1f3a;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.career-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.career-card button {
+    background: #0b1f3a;
+    color: white;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.career-card button:hover {
+    background: #173d70;
+}
+
+@media (max-width: 700px) {
+    .career-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header h1 {
+        font-size: 23px;
+    }
+}
+        </style><script>
+function applyNow(position) {
+    window.location.href =
+        "application.html?position=" + encodeURIComponent(position);
+}
+</script>
+
+</div>
+
+</body>
+</html>
