@@ -245,32 +245,15 @@ function apply(position) {
 
 }
 
+<script>
+function apply(position) {
+    document.getElementById("applicationForm").style.display = "flex";
+}
+
+function closeForm() {
+    document.getElementById("applicationForm").style.display = "none";
+}
 </script>
-<!-- Application Form -->
-<div id="applicationForm" class="application-form">
-  <div class="form-box">
-    <span class="close-form" onclick="closeForm()">×</span>
-
-    <h2>Application Form</h2>
-
-    <form>
-      <label>Full Name</label>
-      <input type="text" placeholder="Enter your full name" required>
-
-      <label>Phone Number</label>
-      <input type="tel" placeholder="Enter your phone number" required>
-
-      <label>Email</label>
-      <input type="email" placeholder="Enter your email" required>
-
-      <label>Address</label>
-      <textarea placeholder="Enter your address" required></textarea>
-
-      <button type="submit">Submit Application</button>
-    </form>
-  </div>
-</div>
-    <script>
 function openForm() {
   document.getElementById("applicationForm").style.display = "block";
 }
