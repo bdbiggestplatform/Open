@@ -235,20 +235,14 @@ header p {
 
 
 <script>
-
-function apply(position) {
-
-    alert(
-        "You selected: " + position +
-        "\n\nApplication form will open here."
-    );
-
-}
-
-<script>
 function apply(position) {
     document.getElementById("applicationForm").style.display = "flex";
 }
+
+function closeForm() {
+    document.getElementById("applicationForm").style.display = "none";
+}
+</script>
 
 function closeForm() {
     document.getElementById("applicationForm").style.display = "none";
