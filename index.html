@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Platform</title>
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+header {
+    background: #0b5ed7;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 15px;
+}
+  .container {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.welcome {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+}
+
+.welcome h2 {
+    color: #0b5ed7;
+    margin-bottom: 10px;
+}
+
+.career-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+  .career-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.career {
+    background: white;
+    padding: 25px 15px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.career:hover {
+    transform: translateY(-5px);
+    background: #eaf2ff;
+}
+
+.career h3 {
+    color: #0b5ed7;
+    margin-bottom: 8px;
+}
+
+.career p {
+    font-size: 14px;
+    color: #666;
+}
+  footer {
+    margin-top: 40px;
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Our Platform</h1>
+    <p>Welcome to our professional platform</p>
+</header>
+<div class="container">
+
+    <div class="welcome">
+        <h2>Welcome</h2>
+
+        <p>
+            Explore our career opportunities
+            and apply for the position
+            that matches your skills.
+        </p>
+    </div>
+
+    <h2 class="career-title">
+        Career Opportunities
+    </h2>
+    <div class="career-box">
+
+    <div class="career"
+         onclick="apply('Story Writing')">
+
+        <h3>Story Writing</h3>
+        <p>Click to apply</p>
+
+    </div>
+
+
+    <div class="career"
+         onclick="apply('Story Management')">
+
+        <h3>Story Management</h3>
+        <p>Click to apply</p>
+
+    </div>
+
+
+    <div class="career"
+         onclick="apply('Website Handling')">
+
+        <h3>Website Handling</h3>
+        <p>Click to apply</p>
+
+    </div>
+        <div class="career"
+         onclick="apply('Content Management')">
+
+        <h3>Content Management</h3>
+        <p>Click to apply</p>
+
+    </div>
+
+
+    <div class="career"
+         onclick="apply('Other Opportunities')">
+
+        <h3>Other Opportunities</h3>
+        <p>Click to apply</p>
+
+    </div>
+
+</div>
+
+</div>
+<footer>
+    <p>© 2026 Our Platform. All Rights Reserved.</p>
+</footer>
+
+
+<script>
+
+function apply(position) {
+
+    alert(
+        "You selected: " + position +
+        "\n\nApplication form will open here."
+    );
+
+}
+
+</script>
+
+</body>
+</html>
