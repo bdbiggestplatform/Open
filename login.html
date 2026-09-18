@@ -1,162 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
 
-<title>Login - Bangladesh Biggest Platform</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f7fa;
-    color: #222;
-}
+        .login-box {
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+        }
 
-.header {
-    background: #0b1f3a;
-    color: white;
-    text-align: center;
-    padding: 25px 15px;
-}
+        .login-box h2 {
+            text-align: center;
+            color: #123c69;
+            margin-bottom: 25px;
+        }
 
-.header h1 {
-    font-size: 28px;
-}
+        .login-box label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
 
-.header p {
-    margin-top: 8px;
-    color: #dbe7f5;
-}
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 15px;
+        }        .login-box button {
+            width: 100%;
+            padding: 13px;
+            background: #123c69;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-.container {
-    max-width: 450px;
-    margin: 60px auto;
-    padding: 20px;
-}
+        .login-box button:hover {
+            background: #0d2d4d;
+        }
 
-.login-box {
-    background: white;
-    padding: 35px;
-    border-radius: 14px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-}
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
 
-.login-box h2 {
-    text-align: center;
-    color: #0b1f3a;
-    margin-bottom: 25px;
-}.login-box label {
-    display: block;
-    margin-bottom: 7px;
-    color: #333;
-    font-weight: bold;
-}
-
-.login-box input {
-    width: 100%;
-    padding: 13px;
-    margin-bottom: 18px;
-    border: 1px solid #d5dbe3;
-    border-radius: 8px;
-    font-size: 15px;
-    outline: none;
-}
-
-.login-box input:focus {
-    border-color: #0b1f3a;
-}
-
-.login-button {
-    width: 100%;
-    padding: 13px;
-    background: #0b1f3a;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.login-button:hover {
-    background: #16365f;
-}
-</style>
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #0b5ed7;
+        }
+    </style>
 </head>
 
 <body>
 
-<header class="header">
-    <h1>Bangladesh Biggest Platform</h1>
-    <p>Login to your account</p>
-</header>
-
-<div class="container">
-
     <div class="login-box">
 
-        <h2>Login</h2>        <form onsubmit="loginUser(event)">
+        <h2>Login</h2>
 
-            <label for="email">Email Address</label>
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter username">
 
-            <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                required
-            >
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password">
 
-            <label for="password">Password</label>
+        <button onclick="login()">Login</button>
 
-            <input
-                type="password"
-                id="password"
-                placeholder="Enter your password"
-                required
-            >
+        <div class="message" id="message"></div>
 
-            <button type="submit" class="login-button">
-                Login
-            </button>
+        <a href="index.html" class="back-home">← Back to Home</a>
 
-        </form>
+    </div>    <script>
+        function login() {
 
-        <p id="loginMessage"
-           style="text-align:center; margin-top:18px; color:#0b1f3a;">
-        </p>    </div>
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
 
-</div>
+            if (username === "" || password === "") {
+                message.style.color = "red";
+                message.innerHTML = "Please enter username and password.";
+                return;
+            }
 
-<script>
+            if (username === "admin" && password === "1234") {
+                message.style.color = "green";
+                message.innerHTML = "Login successful!";
 
-function loginUser(event) {
+                setTimeout(function() {
+                    window.location.href = "index.html";
+                }, 1000);
 
-    event.preventDefault();
-
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const message = document.getElementById("loginMessage");
-
-    if (email && password) {
-
-        message.textContent =
-            "Login information received.";
-
-    } else {
-
-        message.textContent =
-            "Please enter your email and password.";
-
-    }
-}
-
-</script>
+            } else {
+                message.style.color = "red";
+                message.innerHTML = "Invalid username or password.";
+            }
+        }
+    </script>
 
 </body>
 </html>
