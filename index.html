@@ -190,21 +190,36 @@ window.addEventListener("DOMContentLoaded", function () {
 
     const employeeList = document.getElementById("employeeList");
 
-    employees.forEach(function(employee) {
+    let start = 0;
 
-        const card = document.createElement("div");
+    function showEmployees() {
 
-        card.className = "employee-card";
+        employeeList.innerHTML = "";
 
-        card.innerHTML = `
-            <strong>${employee[0]}</strong>
-            <span>ID: ${employee[1]}</span>
-            <span>Phone: ${employee[2]}</span>
-        `;
+        for (let i = 0; i < 3; i++) {
 
-        employeeList.appendChild(card);
+            let index = (start + i) % employees.length;
+            let employee = employees[index];
 
-    });
+            const card = document.createElement("div");
+
+            card.className = "employee-card";
+
+            card.innerHTML = `
+                <strong>${employee[0]}</strong>
+                <span>ID: ${employee[1]}</span>
+                <span>Phone: ${employee[2]}</span>
+            `;
+
+            employeeList.appendChild(card);
+        }
+
+        start = (start + 1) % employees.length;
+    }
+
+    showEmployees();
+
+    setInterval(showEmployees, 3000);
 
 });
 </script>
