@@ -131,117 +131,66 @@
 
     </div>
 <script>
+                <script>
 function openDirectForm() {
-
     document.getElementById("applicationBox").innerHTML = `
-        
         <h2>Direct Application Form</h2>
 
         <form id="directApplicationForm">
 
-                <label>Full Name</label>
-                <input type="text" name="full_name" required>
+            <label>Full Name</label>
+            <input type="text" name="full_name" required>
 
-                <label>Address</label>
-                <textarea name="address" rows="4" required></textarea>
+            <label>Address</label>
+            <textarea name="address" rows="4" required></textarea>
 
-                <label>Date of Birth</label>
-                <input type="date" name="date_of_birth" required>
-<label>Phone Number</label>
-<input type="tel" name="phone_number" required>
+            <label>Date of Birth</label>
+            <input type="date" name="date_of_birth" required>
 
-<label>Educational Qualification</label>
-<textarea name="educational_qualification" rows="3" required></textarea>
+            <label>Phone Number</label>
+            <input type="tel" name="phone_number" required>
 
-<label>Post</label>
-<select name="post" required>
-    <option value="">Select Post</option>
-    <option value="Story Writing">Story Writing</option>
-    <option value="Client Handling">Client Handling</option>
-    <option value="Story Management">Story Management</option>
-    <option value="Website Handling">Website Handling</option>
-    <option value="Deal with">Deal with</option>
-    <option value="HR Department">HR Department</option>
-</select>
-<label>Contact Info</label>
-<input
-    type="text"
-    name="contact_info"
-    placeholder="WhatsApp / IMO / Gmail"
-    required>
+            <label>Educational Qualification</label>
+            <textarea name="educational_qualification" rows="3" required></textarea>
 
-<label>Marital Status</label>
-<select name="marital_status" required>
-    <option value="">Select Marital Status</option>
-    <option value="Single">Single</option>
-    <option value="In a relationship">In a relationship</option>
-    <option value="Married">Married</option>
-    <option value="Divorced">Divorced</option>
-    <option value="Widow">Widow</option>
-</select>
-<label>Upload your one clear Picture</label>
-<input
-    type="file"
-    name="picture"
-    accept="image/*"
-    required>
+            <label>Post</label>
+            <select name="post" required>
+                <option value="">Select Post</option>
+                <option value="Story Writing">Story Writing</option>
+                <option value="Client Handling">Client Handling</option>
+                <option value="Story Management">Story Management</option>
+                <option value="Website Handling">Website Handling</option>
+                <option value="Deal with">Deal with</option>
+                <option value="HR Department">HR Department</option>
+            </select>
 
-<label>Upload your CV (Optional)</label>
-<input
-    type="file"
-    name="cv"
-    accept=".pdf,.doc,.docx">
-                            <button type="submit" class="submit-btn">
+            <label>Contact Info</label>
+            <input type="text" name="contact_info" required>
+
+            <label>Marital Status</label>
+            <select name="marital_status" required>
+                <option value="">Select Marital Status</option>
+                <option value="Single">Single</option>
+                <option value="In a relationship">In a relationship</option>
+                <option value="Married">Married</option>
+                <option value="Divorced">Divorced</option>
+                <option value="Widow">Widow</option>
+            </select>
+
+            <label>Upload your one clear Picture</label>
+            <input type="file" name="picture" accept="image/*" required>
+
+            <label>Upload your CV (Optional)</label>
+            <input type="file" name="cv" accept=".pdf,.doc,.docx">
+
+            <button type="submit" class="submit-btn">
                 Submit Application
             </button>
 
         </form>
     `;
-    document.getElementById("directApplicationForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const form = this;
-    const submitButton = form.querySelector(".submit-btn");
-
-    submitButton.disabled = true;
-    submitButton.textContent = "Submitting...";
-
-    const formData = new FormData(form);
-
-    try {
-        await fetch(
-            "https://script.google.com/macros/s/AKfycbx7JbQ0G7G8iWb-f93EzkHzarRbsxwpLM1lamd3vMBnLl__N78Tdkoxmywb8aX1zSTf/exec",
-            {
-                method: "POST",
-                body: formData
-            }
-        );
-
-        alert("Application submitted successfully!");
-        form.reset();
-
-    } catch (error) {
-        alert("Submission failed. Please try again.");
-        console.error(error);
-    }
-
-    submitButton.disabled = false;
-    submitButton.textContent = "Submit Application";
-});
-
-    document.getElementById("directApplicationForm").addEventListener("submit", async function(event) {
-    event.preventDefault();
-
-    const form = event.target;
-
-    const data = {
-        fullName: form.fullName.value,
-        dateOfBirth: form.dateOfBirth.value,
-        address: form.address.value,
-        education: form.education.value,
-        phone: form.phone.value,
-        whatsapp: form.whatsapp.value,
-        post: form.post.value
+}
+</script>
     };
 
     const response = await fetch("https://script.google.com/macros/s/AKfycbzj8TJrKGr8YsIqPkLjWA81jRkkw0pVqMsndjEyrbWtahvjGWPhIaDV_fYaTPwX00I4/exec",
