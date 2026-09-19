@@ -116,8 +116,6 @@
 
     <nav>
         <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
         <a href="career.html">Career</a>
         <a href="application.html">Application</a>
         <a href="contact.html">Contact</a>
@@ -289,6 +287,77 @@ window.addEventListener("DOMContentLoaded", function () {
     font-size: 14px;
     color: #555;
 }
+         <style>
+.bottom-pages {
+    display: flex;
+    gap: 20px;
+    padding: 30px 20px;
+    margin-top: 40px;
+}
+
+.bottom-page-box {
+    flex: 1;
+    text-decoration: none;
+    background: #ffffff;
+    border: 1px solid #e5e9ef;
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bottom-page-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+}
+
+.bottom-page-box h2 {
+    margin: 0 0 10px;
+    font-size: 26px;
+}
+
+.bottom-page-box p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.bottom-page-box span {
+    font-weight: 600;
+}
+        @media (max-width: 600px) {
+    .bottom-pages {
+        flex-direction: column;
+        gap: 15px;
+        padding: 25px 15px;
+    }
+
+    .bottom-page-box {
+        width: auto;
+        padding: 25px 15px;
+    }
+
+    .bottom-page-box h2 {
+        font-size: 24px;
+    }
+        }
     </style>
+    </style>
+    <section class="bottom-pages">
+
+    <a href="about.html" class="bottom-page-box">
+        <h2>ABOUT</h2>
+        <p>Learn more about BD Biggest Platform Ltd</p>
+        <span>Explore About →</span>
+    </a>
+
+    <a href="services.html" class="bottom-page-box">
+        <h2>SERVICES</h2>
+        <p>Explore our services and opportunities</p>
+        <span>Explore Services →</span>
+    </a>
+
+    </section>
+
 </body>
 </html>
