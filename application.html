@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,22 +79,42 @@
 
         .option:hover {
             opacity: 0.9;
-        }.submit-btn {
-    width: 100%;
-    padding: 16px;
-    margin-top: 25px;
-    border: none;
-    border-radius: 8px;
-    background: #0b5ed7;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-}
+        }
 
-.submit-btn:hover {
-    opacity: 0.9;
-}
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 8px;
+            background: #0b5ed7;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
     </style>
 </head>
 
@@ -109,6 +130,7 @@
         <div class="box">
 
             <h2>Choose Application Method</h2>
+
             <div id="applicationBox"></div>
 
             <!-- 1. Google Form -->
@@ -129,86 +151,137 @@
 
         </div>
 
-    </div>
-<script>
-                <script>
+    </div><script>
+
 function openDirectForm() {
+
     document.getElementById("applicationBox").innerHTML = `
+
         <h2>Direct Application Form</h2>
 
         <form id="directApplicationForm">
 
             <label>Full Name</label>
-            <input type="text" name="full_name" required>
+            <input
+                type="text"
+                name="full_name"
+                required>
 
             <label>Address</label>
-            <textarea name="address" rows="4" required></textarea>
+            <textarea
+                name="address"
+                rows="4"
+                required></textarea>
 
             <label>Date of Birth</label>
-            <input type="date" name="date_of_birth" required>
+            <input
+                type="date"
+                name="date_of_birth"
+                required>
 
             <label>Phone Number</label>
-            <input type="tel" name="phone_number" required>
+            <input
+                type="tel"
+                name="phone_number"
+                required>
 
             <label>Educational Qualification</label>
-            <textarea name="educational_qualification" rows="3" required></textarea>
+            <textarea
+                name="educational_qualification"
+                rows="3"
+                required></textarea>
 
             <label>Post</label>
             <select name="post" required>
-                <option value="">Select Post</option>
-                <option value="Story Writing">Story Writing</option>
-                <option value="Client Handling">Client Handling</option>
-                <option value="Story Management">Story Management</option>
-                <option value="Website Handling">Website Handling</option>
-                <option value="Deal with">Deal with</option>
-                <option value="HR Department">HR Department</option>
-            </select>
 
-            <label>Contact Info</label>
-            <input type="text" name="contact_info" required>
+                <option value="">Select Post</option>
+
+                <option value="Story Writing">
+                    Story Writing
+                </option>
+
+                <option value="Client Handling">
+                    Client Handling
+                </option>
+
+                <option value="Story Management">
+                    Story Management
+                </option>
+
+                <option value="Website Handling">
+                    Website Handling
+                </option>
+
+                <option value="Deal with">
+                    Deal with
+                </option>
+
+                <option value="HR Department">
+                    HR Department
+                </option>
+
+            </select>            
+                    <label>Contact Info</label>
+            <input
+                type="text"
+                name="contact_info"
+                placeholder="WhatsApp / IMO / Gmail"
+                required>
 
             <label>Marital Status</label>
             <select name="marital_status" required>
-                <option value="">Select Marital Status</option>
-                <option value="Single">Single</option>
-                <option value="In a relationship">In a relationship</option>
-                <option value="Married">Married</option>
-                <option value="Divorced">Divorced</option>
-                <option value="Widow">Widow</option>
+
+                <option value="">
+                    Select Marital Status
+                </option>
+
+                <option value="Single">
+                    Single
+                </option>
+
+                <option value="In a relationship">
+                    In a relationship
+                </option>
+
+                <option value="Married">
+                    Married
+                </option>
+
+                <option value="Divorced">
+                    Divorced
+                </option>
+
+                <option value="Widow">
+                    Widow
+                </option>
+
             </select>
 
             <label>Upload your one clear Picture</label>
-            <input type="file" name="picture" accept="image/*" required>
+            <input
+                type="file"
+                name="picture"
+                accept="image/*"
+                required>
 
             <label>Upload your CV (Optional)</label>
-            <input type="file" name="cv" accept=".pdf,.doc,.docx">
+            <input
+                type="file"
+                name="cv"
+                accept=".pdf,.doc,.docx">
 
-            <button type="submit" class="submit-btn">
+            <button
+                type="submit"
+                class="submit-btn">
                 Submit Application
             </button>
 
         </form>
+
     `;
 }
-</script>
-    };
-
-    const response = await fetch("https://script.google.com/macros/s/AKfycbzj8TJrKGr8YsIqPkLjWA81jRkkw0pVqMsndjEyrbWtahvjGWPhIaDV_fYaTPwX00I4/exec",
-        {
-            method: "POST",
-            body: JSON.stringify(data)
-        }
-    );
-
-    const result = await response.json();
-
-    if (result.success) {
-        alert("Your application has been submitted successfully.");
-        form.reset();
-    }
-});
-}
-</script>
+ </script>
 
 </body>
+
 </html>
