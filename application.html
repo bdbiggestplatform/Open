@@ -190,20 +190,22 @@
     name="cv"
     accept=".pdf,.doc,.docx"
     required>
-                <button type="submit" class="submit-btn">
-                    Submit Application
-                </button>
+                            <button type="submit" class="submit-btn">
+                Submit Application
+            </button>
 
-            </form>
-            </form>
-                    document.querySelector("form").addEventListener("submit", function(event) {
-            event.preventDefault();
+        </form>
 
-            alert("Your application has been submitted successfully.");
+    `;
 
-            this.reset();
-        });
-    }
+    document.getElementById("directApplicationForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        alert("Your application has been submitted successfully.");
+    });
+
+}
 </script>
+
 </body>
 </html>
