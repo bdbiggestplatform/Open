@@ -1,287 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Application - BD Biggest Platform Ltd</title>
+<title>Application - BD Biggest Platform Ltd</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f7fb;
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+}.header {
+    background: #0b5ed7;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
 
-        .header {
-            background: #0b5ed7;
-            color: white;
-            text-align: center;
-            padding: 25px 15px;
-        }
+.header h1 {
+    margin: 0;
+    font-size: 28px;
+}
 
-        .header h1 {
-            margin: 0;
-            font-size: 28px;
-        }
+.header p {
+    margin: 8px 0 0;
+    font-size: 15px;
+}
 
-        .header p {
-            margin: 8px 0 0;
-            font-size: 15px;
-        }
+.container {
+    max-width: 650px;
+    margin: 35px auto;
+    padding: 15px;
+}
 
-        .container {
-            max-width: 650px;
-            margin: 35px auto;
-            padding: 15px;
-        }
+.box {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+    text-align: center;
+}.box h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
 
-        .box {
-            background: white;
-            padding: 30px;
-            border-radius: 14px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.10);
-            text-align: center;
-        }
+.option {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
 
-        .box h2 {
-            margin-top: 0;
-            margin-bottom: 25px;
-        }
+.google {
+    background: #198754;
+    color: white;
+}
 
-        .option {
-            display: block;
-            width: 100%;
-            padding: 16px;
-            margin: 15px 0;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-        }
+.direct {
+    background: #0b5ed7;
+    color: white;
+}.option:hover {
+    opacity: 0.9;
+}
 
-        .google {
-            background: #198754;
-            color: white;
-        }
+label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
 
-        .direct {
-            background: #0b5ed7;
-            color: white;
-        }
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    }.submit-btn {
+    width: 100%;
+    padding: 16px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 8px;
+    background: #0b5ed7;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-        .option:hover {
-            opacity: 0.9;
-        }
+.submit-btn:hover {
+    opacity: 0.9;
+}
 
-        label {
-            display: block;
-            text-align: left;
-            margin-top: 15px;
-            margin-bottom: 6px;
-            font-weight: bold;
-        }
-
-        input,
-        textarea,
-        select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 15px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 16px;
-            margin-top: 25px;
-            border: none;
-            border-radius: 8px;
-            background: #0b5ed7;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .submit-btn:hover {
-            opacity: 0.9;
-        }
-    </style>
+</style>
 </head>
 
-<body>
+<body><div class="header">
+    <h1>BD Biggest Platform Ltd</h1>
+    <p>Application</p>
+</div>
 
-    <div class="header">
-        <h1>BD Biggest Platform Ltd</h1>
-        <p>Application</p>
-    </div>
+<div class="container">
 
-    <div class="container">
+    <div class="box">
 
-        <div class="box">
+        <h2>Choose Application Method</h2>
 
-            <h2>Choose Application Method</h2>
+        <div id="applicationBox"></div><a
+    href="https://forms.gle/4ALKGsVbhxb226b97"
+    target="_blank"
+    class="option google">
+    1. Google Form
+</a>
 
-            <div id="applicationBox"></div>
+<button
+    type="button"
+    class="option direct"
+    onclick="openDirectForm()">
+    2. Direct Form
+</button>    </div>
+</div>
 
-            <!-- 1. Google Form -->
-            <a
-                href="https://forms.gle/4ALKGsVbhxb226b97"
-                target="_blank"
-                class="option google">
-                1. Google Form
-            </a>
-
-            <!-- 2. Direct Form -->
-            <button
-                type="button"
-                class="option direct"
-                onclick="openDirectForm()">
-                2. Direct Form
-            </button>
-
-        </div>
-
-    </div><script>
+<script>
 
 function openDirectForm() {
 
     document.getElementById("applicationBox").innerHTML = `
-
+    
         <h2>Direct Application Form</h2>
 
         <form id="directApplicationForm">
 
             <label>Full Name</label>
-            <input
-                type="text"
-                name="full_name"
-                required>
+            <input type="text" name="full_name" required>
 
             <label>Address</label>
-            <textarea
-                name="address"
-                rows="4"
-                required></textarea>
+            <textarea name="address" rows="4" required></textarea><label>Date of Birth</label>
+<input type="date" name="date_of_birth" required>
 
-            <label>Date of Birth</label>
-            <input
-                type="date"
-                name="date_of_birth"
-                required>
+<label>Phone Number</label>
+<input type="tel" name="phone_number" required>
 
-            <label>Phone Number</label>
-            <input
-                type="tel"
-                name="phone_number"
-                required>
+<label>Educational Qualification</label>
+<textarea name="educational_qualification"
+rows="3" required></textarea>
 
-            <label>Educational Qualification</label>
-            <textarea
-                name="educational_qualification"
-                rows="3"
-                required></textarea>
+<label>Post</label>
+<select name="post" required>
 
-            <label>Post</label>
-            <select name="post" required>
+<option value="">Select Post</option>
+<option value="Story Writing">Story Writing</option>
+<option value="Client Handling">Client Handling</option>
+<option value="Story Management">Story Management</option>
+<option value="Website Handling">Website Handling</option>
+<option value="Deal with">Deal with</option>
+<option value="HR Department">HR Department</option>
 
-                <option value="">Select Post</option>
+</select><label>Contact Information</label>
+<input
+    type="text"
+    name="contact_info"
+    placeholder="WhatsApp / IMO / Gmail"
+    required>
 
-                <option value="Story Writing">
-                    Story Writing
-                </option>
+<label>Marital Status</label>
+<select name="marital_status" required>
 
-                <option value="Client Handling">
-                    Client Handling
-                </option>
+<option value="">Select Status</option>
+<option value="Single">Single</option>
+<option value="In a relationship">In a relationship</option>
+<option value="Married">Married</option>
+<option value="Divorced">Divorced</option>
+<option value="Widow">Widow</option>
 
-                <option value="Story Management">
-                    Story Management
-                </option>
+</select><label>Picture</label>
+<input
+    type="file"
+    name="picture"
+    accept="image/*"
+    required>
 
-                <option value="Website Handling">
-                    Website Handling
-                </option>
+<label>CV</label>
+<input
+    type="file"
+    name="cv"
+    accept=".pdf,.doc,.docx">
 
-                <option value="Deal with">
-                    Deal with
-                </option>
-
-                <option value="HR Department">
-                    HR Department
-                </option>
-
-            </select>            
-                    <label>Contact Info</label>
-            <input
-                type="text"
-                name="contact_info"
-                placeholder="WhatsApp / IMO / Gmail"
-                required>
-
-            <label>Marital Status</label>
-            <select name="marital_status" required>
-
-                <option value="">
-                    Select Marital Status
-                </option>
-
-                <option value="Single">
-                    Single
-                </option>
-
-                <option value="In a relationship">
-                    In a relationship
-                </option>
-
-                <option value="Married">
-                    Married
-                </option>
-
-                <option value="Divorced">
-                    Divorced
-                </option>
-
-                <option value="Widow">
-                    Widow
-                </option>
-
-            </select>
-
-            <label>Upload your one clear Picture</label>
-            <input
-                type="file"
-                name="picture"
-                accept="image/*"
-                required>
-
-            <label>Upload your CV (Optional)</label>
-            <input
-                type="file"
-                name="cv"
-                accept=".pdf,.doc,.docx">
-
-            <button
-                type="submit"
-                class="submit-btn">
-                Submit Application
-            </button>
-
-        </form>
+<button
+    type="submit"
+    class="submit-btn">
+    Submit Application
+</button>        </form>
 
     `;
-}
- </script>
+
+}</script>
 
 </body>
-
 </html>
