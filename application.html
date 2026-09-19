@@ -248,8 +248,7 @@ document.getElementById("directApplicationForm").addEventListener("submit", asyn
         post: form.post.value
     };
 
-    const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbzj8TJrKGr8YsIqPkLjWA81jRkkw0pVqMsndjEyrbWtahvjGWPhIaDV_fYaTPwX00I4/exec",
+    const response = await fetch("https://script.google.com/macros/s/AKfycbzj8TJrKGr8YsIqPkLjWA81jRkkw0pVqMsndjEyrbWtahvjGWPhIaDV_fYaTPwX00I4/exec",
         {
             method: "POST",
             body: JSON.stringify(data)
