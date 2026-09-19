@@ -186,19 +186,31 @@ const employees = [
     ["Afsana Jahan", "EMP-1019", "01******567"],
     ["Rumana Akter", "EMP-1020", "01******678"]
 ];
-    </script><script>
-const employeeList = document.getElementById("employeeList");
+    </script>
+<script>
+window.addEventListener("DOMContentLoaded", function () {
 
-employees.forEach(employee => {
-    employeeList.innerHTML += `
-        <div class="employee-card">
+    const employeeList = document.getElementById("employeeList");
+
+    employees.forEach(function(employee) {
+
+        const card = document.createElement("div");
+
+        card.className = "employee-card";
+
+        card.innerHTML = `
             <strong>${employee[0]}</strong>
             <span>ID: ${employee[1]}</span>
             <span>Phone: ${employee[2]}</span>
-        </div>
-    `;
+        `;
+
+        employeeList.appendChild(card);
+
+    });
+
 });
-    </script><style>
+</script>
+    <style>
 .employee-section {
     margin: 30px 15px;
     text-align: center;
@@ -228,7 +240,8 @@ employees.forEach(employee => {
 .employee-card strong {
     font-size: 17px;
 }
-    </style><style>
+    </style>
+    <style>
 .employee-list {
     animation: employeeScroll 25s linear infinite;
 }
@@ -250,7 +263,8 @@ employees.forEach(employee => {
 .employee-card {
     transition: transform 0.3s ease;
 }
-    </style><style>
+    </style>
+    <style>
 .employee-list {
     will-change: transform;
 }
@@ -258,7 +272,8 @@ employees.forEach(employee => {
 .employee-section {
     overflow: hidden;
 }
-    </style><style>
+    </style>
+    <style>
 .employee-section h2 {
     font-size: 24px;
     font-weight: 700;
