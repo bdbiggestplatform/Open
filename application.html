@@ -196,8 +196,8 @@ function openDirectForm() {
             </button>
 
         </form>
-        <script>
-document.getElementById("directApplicationForm").addEventListener("submit", async function(e) {
+    `;
+    document.getElementById("directApplicationForm").addEventListener("submit", async function(e) {
     e.preventDefault();
 
     const form = this;
@@ -209,7 +209,7 @@ document.getElementById("directApplicationForm").addEventListener("submit", asyn
     const formData = new FormData(form);
 
     try {
-        const response = await fetch(
+        await fetch(
             "https://script.google.com/macros/s/AKfycbx7JbQ0G7G8iWb-f93EzkHzarRbsxwpLM1lamd3vMBnLl__N78Tdkoxmywb8aX1zSTf/exec",
             {
                 method: "POST",
@@ -218,7 +218,6 @@ document.getElementById("directApplicationForm").addEventListener("submit", asyn
         );
 
         alert("Application submitted successfully!");
-
         form.reset();
 
     } catch (error) {
@@ -229,9 +228,6 @@ document.getElementById("directApplicationForm").addEventListener("submit", asyn
     submitButton.disabled = false;
     submitButton.textContent = "Submit Application";
 });
-</script>
-
-    `;
 
     document.getElementById("directApplicationForm").addEventListener("submit", async function(event) {
     event.preventDefault();
