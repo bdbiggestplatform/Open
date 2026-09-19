@@ -130,12 +130,13 @@
 
     </div>
 <script>
-    function openDirectForm() {
-        document.querySelector(".box").innerHTML = `
-            
-            <h2>Direct Application Form</h2>
+function openDirectForm() {
 
-            <form>
+    document.getElementById("applicationBox").innerHTML = `
+        
+        <h2>Direct Application Form</h2>
+
+        <form id="directApplicationForm">
 
                 <label>Full Name</label>
                 <input type="text" name="full_name" required>
