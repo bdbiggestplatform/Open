@@ -1,1 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Admin Panel - BD Biggest Platform Ltd</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+}
+
+.admin-header {
+    background: #0b5ed7;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.admin-header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.admin-header p {
+    margin: 8px 0 0;
+}
+</style>
+</head>
+
+<body>
+
+<header class="admin-header">
+    <h1>BD Biggest Platform Ltd</h1>
+    <p>Admin Panel</p>
+</header>
+
+</body>
+</html>
+<div class="admin-header">
+    <h1>Admin Panel</h1>
+    <p>BD Biggest Platform Ltd</p>
+</div><div class="admin-menu">
+
+    <button onclick="showSection('applications')">
+        Applications
+    </button>
+
+    <button onclick="showSection('employees')">
+        Employees
+    </button>
+
+    <button onclick="showSection('settings')">
+        Settings
+    </button>
+
+</div><div id="applications" class="admin-section">
+    <h2>Applications</h2>
+    <p>Application data will appear here.</p>
+</div><div id="employees" class="admin-section">
+    <h2>Employees</h2>
+    <p>Employee data will appear here.</p>
+</div><div id="settings" class="admin-section">
+    <h2>Settings</h2>
+    <p>Admin settings will appear here.</p>
+</div><script>
+
+function showSection(sectionId) {
+
+    const sections = document.querySelectorAll(".admin-section");
+
+    sections.forEach(function(section) {
+        section.style.display = "none";
+    });
+
+    document.getElementById(sectionId).style.display = "block";
+}
+
+showSection("applications");
+
+</script><style>
+
+.admin-menu {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.admin-menu button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #0d6efd;
+    color: white;
+    cursor: pointer;
+}
+
+.admin-section {
+    padding: 20px;
+    margin-top: 15px;
+    background: white;
+    border-radius: 10px;
+}
+
+</style><style>
+
+.admin-header {
+    text-align: center;
+    padding: 20px;
+}
+
+.admin-header h1 {
+    margin-bottom: 5px;
+}
+
+.admin-header p {
+    margin: 0;
+    color: #666;
+}
+
+</style><style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f4f6f9;
+}
+
+</style><script>
+
+document.querySelectorAll(".admin-menu button").forEach(function(button) {
+
+    button.addEventListener("click", function() {
+        window.scrollTo({
+            top: document.querySelector(".admin-section[style*='block']").offsetTop,
+            behavior: "smooth"
+        });
+    });
+
+});
+
+</script><footer style="text-align:center; padding:25px; margin-top:30px;">
+    <p>© 2026 BD Biggest Platform Ltd. All Rights Reserved.</p>
+</footer>
