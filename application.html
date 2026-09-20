@@ -210,6 +210,78 @@ rows="3" required></textarea>
     `;
 
 }</script>
+document.addEventListener("submit", async function(event) {
 
+    if (event.target.id !== "directApplicationForm") return;
+
+    event.preventDefault();
+
+    const form = event.target;
+    const button = form.querySelector(".submit-btn");
+
+    button.disabled = true;
+    button.textContent = "Submitting...";
+
+    const pictureFile = form.picture.files[0];
+    const cvFile = form.cv.files[0];
+
+    const readFile = (file) => {
+        return new Promise((resolve) => {
+            if (!file) {
+                resolve("");
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = () => resolve(reader.result);
+            reader.readAsDataURL(file);
+        });
+    };
+
+    try {
+
+        const picture = await readFile(pictureFile);
+        const cv = await readFile(cvFile);
+
+        const data = {
+            fullName: form.full_name.value,
+            address: form.address.value,
+            dateOfBirth: form.date_of_birth.value,
+            phoneNumber: form.phone_number.value,
+            educationalQualification: form.educational_qualification.value,
+            post: form.post.value,
+            contactInformation: form.contact_info.value,
+            maritalStatus: form.marital_status.value,
+            picture: picture,
+            cv: cv
+        };
+
+        await fetch(
+            "https://script.google.com/macros/s/AKfycbxVmW-0fb3_WFAj3bCzy9W9PBr4IzhcCdJOcFYaxjnA3YUCO_sD4aLHSrYTScDIJqx5/exec",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8"
+                },
+                body: JSON.stringify(data)
+            }
+        );
+
+        alert("Application submitted successfully!");
+
+        form.reset();
+
+    } catch (error) {
+
+        alert("Submission failed. Please try again.");
+        console.error(error);
+
+    }
+
+    button.disabled = false;
+    button.textContent = "Submit Application";
+
+});
 </body>
 </html>
