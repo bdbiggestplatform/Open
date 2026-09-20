@@ -251,8 +251,8 @@ document.addEventListener("submit", async function(event) {
 
 const picture = await readFile(pictureFile);
 const cv = await readFile(cvFile);
-        picture: "",
-        cv: ""
+        picture: picture,
+        cv: cv
     };
 
     try {
