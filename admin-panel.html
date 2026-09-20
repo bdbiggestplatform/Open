@@ -37,7 +37,127 @@ body {
     <h1>BD Biggest Platform Ltd</h1>
     <p>Admin Panel</p>
 </header>
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbxVmW-0fb3_WFAj3bCzy9W9PBr4IzhcCdJOcFYaxjnA3YUCO_sD4aLHSrYTScDIJqx5/exec";
+</script>
+    <script>
 
+async function loadApplications() {
+
+    try {
+
+        const response = await fetch(API_URL);
+        const data = await response.json();
+
+        showApplications(data);
+
+    } catch (error) {
+
+        console.error("Error loading applications:", error);
+
+    }
+
+}
+
+loadApplications();
+
+    </script><script>
+
+function displayApplications(data) {
+
+    const container = document.getElementById("applications");
+
+    if (!data || data.length === 0) {
+        container.innerHTML += "<p>No applications found.</p>";
+        return;
+    }
+
+    data.forEach(function(application) {
+
+        const card = document.createElement("div");
+
+        card.className = "application-card";
+
+        card.innerHTML = `
+            <p><strong>Application:</strong></p>
+            <pre>${JSON.stringify(application, null, 2)}</pre>
+        `;
+
+        container.appendChild(card);
+
+    });
+
+}
+
+    </script><style>
+
+.application-card {
+    background: white;
+    padding: 15px;
+    margin-top: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.application-card pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+    </style><script>
+
+function showApplications(data) {
+
+    const container = document.getElementById("applications");
+
+    container.innerHTML = `
+        <h2>Applications</h2>
+    `;
+
+    displayApplications(data);
+}
+
+    </script>
+    <script>
+
+setInterval(function() {
+    loadApplications();
+}, 30000);
+
+    </script><script>
+
+const originalLoadApplications = loadApplications;
+
+loadApplications = async function() {
+
+    try {
+
+        const response = await fetch(API_URL);
+        const data = await response.json();
+
+        showApplications(data);
+
+    } catch (error) {
+
+        console.error("Error loading applications:", error);
+
+    }
+
+};
+
+loadApplications();
+
+    </script><script>
+
+const appBox = document.getElementById("applications");
+
+appBox.style.minHeight = "200px";
+
+    </script><script>
+
+console.log("Admin Panel connected successfully.");
+
+    </script>
 </body>
 </html>
 <div class="admin-header">
