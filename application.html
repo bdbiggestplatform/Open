@@ -232,6 +232,25 @@ document.addEventListener("submit", async function(event) {
         post: form.post.value,
         contactInformation: form.contact_info.value,
         maritalStatus: form.marital_status.value,
+        const pictureFile = form.picture.files[0];
+        const cvFile = form.cv.files[0];
+       const readFile = (file) => {
+    return new Promise((resolve) => {
+        if (!file) {
+            resolve("");
+            return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = () => resolve(reader.result);
+
+        reader.readAsDataURL(file);
+    });
+};
+
+const picture = await readFile(pictureFile);
+const cv = await readFile(cvFile);
         picture: "",
         cv: ""
     };
