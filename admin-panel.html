@@ -32,7 +32,30 @@ body {
 </head>
 
 <body>
+    <div id="adminContent">
+<div id="loginScreen">
 
+    <div class="login-box">
+
+        <h2>Admin Login</h2>
+
+        <p>BD Biggest Platform Ltd</p>
+
+        <input
+            type="password"
+            id="adminPassword"
+            placeholder="Enter Password"
+        >
+
+        <button onclick="adminLogin()">
+            Login
+        </button>
+
+        <p id="loginError"></p>
+
+    </div>
+
+</div>
 <header class="admin-header">
     <h1>BD Biggest Platform Ltd</h1>
     <p>Admin Panel</p>
@@ -158,6 +181,34 @@ appBox.style.minHeight = "200px";
 console.log("Admin Panel connected successfully.");
 
     </script>
+    <script>
+<script>
+
+const ADMIN_PASSWORD = "12345678";
+
+function adminLogin() {
+
+    const password =
+        document.getElementById("adminPassword").value;
+
+    if (password === ADMIN_PASSWORD) {
+
+        document.getElementById("loginScreen").style.display = "none";
+
+        document.getElementById("adminContent").style.display = "block";
+
+        document.body.style.overflow = "auto";
+
+    } else {
+
+        document.getElementById("loginError").innerText =
+            "Incorrect password. Please try again.";
+
+    }
+
+}
+
+</script>
 </body>
 </html>
 <div class="admin-header">
@@ -251,7 +302,71 @@ body {
     background: #f4f6f9;
 }
 
-</style><script>
+</style>
+<style>
+
+#loginScreen {
+    position: fixed;
+    inset: 0;
+    background: #f4f7fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.login-box {
+    width: 90%;
+    max-width: 380px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-top: 0;
+    color: #0b5ed7;
+}
+
+.login-box input {
+    width: 90%;
+    padding: 13px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.login-box button {
+    width: 97%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #0b5ed7;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#loginError {
+    color: red;
+    margin-top: 15px;
+}
+
+</style><style>
+
+body {
+    overflow: hidden;
+}
+
+#adminContent {
+    display: none;
+}
+
+</style>
+<script>
 
 document.querySelectorAll(".admin-menu button").forEach(function(button) {
 
@@ -267,3 +382,4 @@ document.querySelectorAll(".admin-menu button").forEach(function(button) {
 </script><footer style="text-align:center; padding:25px; margin-top:30px;">
     <p>© 2026 BD Biggest Platform Ltd. All Rights Reserved.</p>
 </footer>
+</div>
