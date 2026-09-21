@@ -131,7 +131,34 @@ body{
     margin-top:0;
     color:#0d6efd;
 }
+.application-card {
+  background: white;
+  padding: 18px;
+  margin: 15px 0;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.10);
+  border-left: 5px solid #0d6efd;
+}
 
+.application-card h3 {
+  margin-top: 0;
+  color: #0d6efd;
+}
+
+.application-card p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.application-card a {
+  color: #0d6efd;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.application-card a:hover {
+  text-decoration: underline;
+}
 </style>
 </head><body>
 
@@ -422,9 +449,59 @@ async function loadApplications() {
 
     if (result.success) {
 
-      console.log("Applications loaded:", result.applications);
+  const section = document.getElementById("applications");
 
-    } else {
+  if (section) {
+
+    let html = "<h2>Applications</h2>";
+
+    result.applications.forEach(function(app, index) {
+
+      html += `
+        <div class="application-card">
+
+          <h3>Application ${index + 1}</h3>
+
+          <p><b>Name:</b> ${app.fullName}</p>
+          <p><b>Address:</b> ${app.address}</p>
+          <p><b>Date of Birth:</b> ${app.dateOfBirth}</p>
+          <p><b>Phone:</b> ${app.phoneNumber}</p>
+          <p><b>Education:</b> ${app.educationalQualification}</p>
+          <p><b>Post:</b> ${app.post}</p>
+          <p><b>Contact:</b> ${app.contactInformation}</p>
+          <p><b>Marital Status:</b> ${app.maritalStatus}</p>
+
+          <p>
+            <b>Picture:</b>
+            ${
+              app.pictureUrl
+              ? `<a href="${app.pictureUrl}" target="_blank">View Picture</a>`
+              : "Not uploaded"
+            }
+          </p>
+
+          <p>
+            <b>CV:</b>
+            ${
+              app.cvUrl
+              ? `<a href="${app.cvUrl}" target="_blank">View CV</a>`
+              : "Not uploaded"
+            }
+          </p>
+
+          <p><b>Submitted:</b> ${app.submittedAt}</p>
+
+        </div>
+      `;
+
+    });
+
+    section.innerHTML = html;
+
+  }
+
+} else 
+{
 
       console.log("Failed to load applications");
 
