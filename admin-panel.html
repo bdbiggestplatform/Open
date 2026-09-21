@@ -4,383 +4,568 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin Panel - BD Biggest Platform Ltd</title>
+<title>Admin Panel - BD Biggest Platform Ltd</title><style>
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-.admin-header {
-    background: #0b5ed7;
-    color: white;
-    padding: 20px;
-    text-align: center;
+body{
+    font-family:Arial,sans-serif;
+    background:#f1f5f9;
+    color:#222;
+}.login-box{
+    width:92%;
+    max-width:400px;
+    margin:80px auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 25px rgba(0,0,0,0.12);
 }
 
-.admin-header h1 {
-    margin: 0;
-    font-size: 26px;
+.login-box h1{
+    text-align:center;
+    color:#0d6efd;
+    margin-bottom:8px;
 }
 
-.admin-header p {
-    margin: 8px 0 0;
+.login-box p{
+    text-align:center;
+    color:#777;
+    margin-bottom:25px;
 }
+
+.login-box input{
+    width:100%;
+    padding:13px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.login-box button{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:8px;
+    background:#0d6efd;
+    color:white;
+    font-size:16px;
+}
+
+#errorMessage{
+    color:red;
+    text-align:center;
+    margin-top:12px;
+}#adminPanel{
+    display:none;
+}
+
+.admin-header{
+    background:#0d6efd;
+    color:white;
+    padding:25px 15px;
+    text-align:center;
+}
+
+.admin-header h1{
+    margin-bottom:6px;
+}
+
+.admin-menu{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    padding:15px;
+    background:white;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+.admin-menu button{
+    flex:1;
+    min-width:120px;
+    padding:12px 15px;
+    border:none;
+    border-radius:8px;
+    background:#0d6efd;
+    color:white;
+    font-size:15px;
+}.admin-menu button:hover{
+    background:#0958c7;
+}
+
+.logout-btn{
+    background:#dc3545 !important;
+}
+
+.admin-section{
+    display:none;
+    padding:20px;
+}
+
+.admin-section.active{
+    display:block;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:20px;
+    box-shadow:0 3px 12px rgba(0,0,0,0.08);
+}
+
+.card h2{
+    margin-bottom:15px;
+    color:#0d6efd;
+}
+
+.application{
+    background:white;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:15px;
+}
+
+.application h3{
+    margin-bottom:10px;
+}
+
+.application p{
+    margin:6px 0;
+}
+
+.status{
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:6px;
+    margin-top:8px;
+    font-size:13px;
+}
+
+.pending{
+    background:#fff3cd;
+    color:#856404;
+}
+
+.approved{
+    background:#d1e7dd;
+    color:#0f5132;
+}
+
+.rejected{
+    background:#f8d7da;
+    color:#842029;
+}.action-buttons{
+    margin-top:12px;
+}
+
+.action-buttons button{
+    padding:8px 12px;
+    border:none;
+    border-radius:6px;
+    color:white;
+    cursor:pointer;
+    margin-right:6px;
+}
+
+.approve{
+    background:#198754;
+}
+
+.reject{
+    background:#dc3545;
+}
+
+.employee{
+    background:white;
+    border:1px solid #ddd;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+.employee strong{
+    color:#0d6efd;
+}
+
+.setting-input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    margin-top:8px;
+    margin-bottom:15px;
+}
+
+.save-btn{
+    background:#198754;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+@media(max-width:600px){
+
+    .admin-menu{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .admin-menu button{
+        min-width:0;
+    }
+
+    .admin-section{
+        padding:12px;
+    }
+
+}
+
 </style>
 </head>
-
 <body>
-    <div id="adminContent">
+
 <div id="loginScreen">
 
     <div class="login-box">
 
-        <h2>Admin Login</h2>
+        <h1>Admin Login</h1>
 
         <p>BD Biggest Platform Ltd</p>
 
         <input
+            type="text"
+            id="adminUsername"
+            placeholder="Admin Username"
+        >
+
+        <input
             type="password"
             id="adminPassword"
-            placeholder="Enter Password"
+            placeholder="Admin Password"
         >
 
         <button onclick="adminLogin()">
             Login
         </button>
 
-        <p id="loginError"></p>
+        <div id="errorMessage"></div>
 
     </div>
 
 </div>
-<div id="applications"></div>
-<header class="admin-header">
-    <h1>BD Biggest Platform Ltd</h1>
-    <p>Admin Panel</p>
-</header>
-<script>
-const API_URL = "https://script.google.com/macros/s/AKfycbxVmW-0fb3_WFAj3bCzy9W9PBr4IzhcCdJOcFYaxjnA3YUCO_sD4aLHSrYTScDIJqx5/exec";
-</script>
-    <script>
 
-async function loadApplications() {
 
-    try {
+<div id="adminPanel">
 
-        const response = await fetch(API_URL);
-        const data = await response.json();
+    <div class="admin-header">
 
-        displayApplications(data);
+        <h1>Admin Panel</h1>
 
-    } catch (error) {
+        <p>BD Biggest Platform Ltd</p>
 
-        console.error("Error loading applications:", error);
+    </div>
+
+    <div class="admin-menu">
+
+        <button onclick="showSection('applications')">
+            Applications
+        </button>
+
+        <button onclick="showSection('employees')">
+            Employees
+        </button>
+
+        <button onclick="showSection('settings')">
+            Settings
+        </button>
+
+        <button
+            class="logout-btn"
+            onclick="adminLogout()">
+            Logout
+        </button>
+
+    </div>    <div
+        id="applications"
+        class="admin-section active">
+
+        <div class="card">
+
+            <h2>Job Applications</h2>
+
+            <p>
+                Applications submitted by candidates
+                will appear here.
+            </p>
+
+        </div>
+
+        <div id="applicationList">
+
+            <div class="application">
+
+                <h3>Applications</h3>
+
+                <p>
+                    No application data loaded yet.
+                </p>
+
+                <span class="status pending">
+                    Waiting
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="employees"
+        class="admin-section">
+
+        <div class="card">
+
+            <h2>Employees</h2>
+
+            <p>
+                Employee information will appear here.
+            </p>
+
+        </div>
+
+        <div id="employeeList">
+
+            <div class="employee">
+
+                <strong>Employee ID:</strong>
+                Waiting for data...
+
+                <br><br>
+
+                <strong>Name:</strong>
+                Waiting for data...
+
+                <br><br>
+
+                <strong>Status:</strong>
+                Waiting for data...
+
+            </div>
+
+        </div>
+
+    </div>    <div
+        id="settings"
+        class="admin-section">
+
+        <div class="card">
+
+            <h2>Admin Settings</h2>
+
+            <label>
+                Company Name
+            </label>
+
+            <input
+                class="setting-input"
+                type="text"
+                id="companyName"
+                value="BD Biggest Platform Ltd"
+            >
+
+            <label>
+                Contact Email
+            </label>
+
+            <input
+                class="setting-input"
+                type="email"
+                id="contactEmail"
+                value="bangladeshbiggestplatform@gmail.com"
+            >
+
+            <button
+                class="save-btn"
+                onclick="saveSettings()">
+
+                Save Settings
+
+            </button>
+
+            <p
+                id="saveMessage"
+                style="margin-top:12px;color:green;">
+            </p>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script>function adminLogin(){
+
+    const username =
+        document.getElementById("adminUsername").value.trim();
+
+    const password =
+        document.getElementById("adminPassword").value.trim();
+
+    if(
+        username === "admin" &&
+        password === "123456"
+    ){
+
+        document.getElementById("loginScreen").style.display =
+            "none";
+
+        document.getElementById("adminPanel").style.display =
+            "block";
+
+    }else{
+
+        document.getElementById("errorMessage").innerText =
+            "Invalid username or password.";
 
     }
 
 }
 
-loadApplications();
 
-    </script><script>
+function adminLogout(){
 
-function displayApplications(data) {
+    document.getElementById("adminPanel").style.display =
+        "none";
 
-    const container = document.getElementById("applications");
+    document.getElementById("loginScreen").style.display =
+        "block";
 
-    if (!data || data.length === 0) {
-        container.innerHTML += "<p>No applications found.</p>";
-        return;
-    }
+    document.getElementById("adminUsername").value =
+        "";
 
-    data.forEach(function(application) {
+    document.getElementById("adminPassword").value =
+        "";
 
-        const card = document.createElement("div");
+    document.getElementById("errorMessage").innerText =
+        "";
 
-        card.className = "application-card";
+}
 
-        card.innerHTML = `
-            <p><strong>Application:</strong></p>
-            <pre>${JSON.stringify(application, null, 2)}</pre>
-        `;
 
-        container.appendChild(card);
+function showSection(sectionId){
+
+    const sections =
+        document.querySelectorAll(".admin-section");
+
+    sections.forEach(function(section){
+
+        section.classList.remove("active");
 
     });
 
+    const selected =
+        document.getElementById(sectionId);
+
+    if(selected){
+
+        selected.classList.add("active");
+
+    }
+function approveApplication(button){
+
+    const application =
+        button.closest(".application");
+
+    const status =
+        application.querySelector(".status");
+
+    status.innerText = "Approved";
+
+    status.className =
+        "status approved";
+
 }
 
-    </script><style>
 
-.application-card {
-    background: white;
-    padding: 15px;
-    margin-top: 12px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
+function rejectApplication(button){
+
+    const application =
+        button.closest(".application");
+
+    const status =
+        application.querySelector(".status");
+
+    status.innerText = "Rejected";
+
+    status.className =
+        "status rejected";
+
+    }
 }
 
-.application-card pre {
-    white-space: pre-wrap;
-    word-break: break-word;
+function saveSettings(){
+
+    const company =
+        document.getElementById("companyName").value;
+
+    const email =
+        document.getElementById("contactEmail").value;
+
+    localStorage.setItem(
+        "companyName",
+        company
+    );
+
+    localStorage.setItem(
+        "contactEmail",
+        email
+    );
+
+    document.getElementById("saveMessage").innerText =
+        "Settings saved successfully.";
+
 }
 
-    </style><script>
 
-function showApplications(data) {
+window.onload = function(){
 
-    const container = document.getElementById("applications");
+    const company =
+        localStorage.getItem("companyName");
 
-    container.innerHTML = `
-        <h2>Applications</h2>
-    `;
+    const email =
+        localStorage.getItem("contactEmail");
 
-    displayApplications(data);
-}
 
-    </script>
-    <script>
+    if(company){
 
-setInterval(function() {
-    loadApplications();
-}, 30000);
+        document.getElementById("companyName").value =
+            company;
 
-    </script><script>
+    }
 
-const originalLoadApplications = loadApplications;
 
-loadApplications = async function() {
+    if(email){
 
-    try {
-
-        const response = await fetch(API_URL);
-        const data = await response.json();
-
-        showApplications(data);
-
-    } catch (error) {
-
-        console.error("Error loading applications:", error);
+        document.getElementById("contactEmail").value =
+            email;
 
     }
 
 };
-
-loadApplications();
-
-    </script><script>
-
-const appBox = document.getElementById("applications");
-
-appBox.style.minHeight = "200px";
-
-    </script><script>
-
-console.log("Admin Panel connected successfully.");
-
-    </script>
-    <script>
-<script>
-
-const ADMIN_PASSWORD = "12345678";
-
-function adminLogin() {
-
-    const password =
-        document.getElementById("adminPassword").value;
-
-    if (password === ADMIN_PASSWORD) {
-
-        document.getElementById("loginScreen").style.display = "none";
-
-        document.getElementById("adminContent").style.display = "block";
-
-        document.body.style.overflow = "auto";
-
-    } else {
-
-        document.getElementById("loginError").innerText =
-            "Incorrect password. Please try again.";
-
-    }
-
-}
-
 </script>
+
 </body>
 </html>
-<div class="admin-header">
-    <h1>Admin Panel</h1>
-    <p>BD Biggest Platform Ltd</p>
-</div><div class="admin-menu">
-
-    <button onclick="showSection('applications')">
-        Applications
-    </button>
-
-    <button onclick="showSection('employees')">
-        Employees
-    </button>
-
-    <button onclick="showSection('settings')">
-        Settings
-    </button>
-
-</div><div id="applications" class="admin-section">
-    <h2>Applications</h2>
-    <p>Application data will appear here.</p>
-</div><div id="employees" class="admin-section">
-    <h2>Employees</h2>
-    <p>Employee data will appear here.</p>
-</div><div id="settings" class="admin-section">
-    <h2>Settings</h2>
-    <p>Admin settings will appear here.</p>
-</div><script>
-
-function showSection(sectionId) {
-
-    const sections = document.querySelectorAll(".admin-section");
-
-    sections.forEach(function(section) {
-        section.style.display = "none";
-    });
-
-    document.getElementById(sectionId).style.display = "block";
-}
-
-showSection("applications");
-
-</script><style>
-
-.admin-menu {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin: 20px 0;
-}
-
-.admin-menu button {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    background: #0d6efd;
-    color: white;
-    cursor: pointer;
-}
-
-.admin-section {
-    padding: 20px;
-    margin-top: 15px;
-    background: white;
-    border-radius: 10px;
-}
-
-</style><style>
-
-.admin-header {
-    text-align: center;
-    padding: 20px;
-}
-
-.admin-header h1 {
-    margin-bottom: 5px;
-}
-
-.admin-header p {
-    margin: 0;
-    color: #666;
-}
-
-</style><style>
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background: #f4f6f9;
-}
-
-</style>
-<style>
-
-#loginScreen {
-    position: fixed;
-    inset: 0;
-    background: #f4f7fb;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 99999;
-}
-
-.login-box {
-    width: 90%;
-    max-width: 380px;
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
-    text-align: center;
-}
-
-.login-box h2 {
-    margin-top: 0;
-    color: #0b5ed7;
-}
-
-.login-box input {
-    width: 90%;
-    padding: 13px;
-    margin: 15px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-}
-
-.login-box button {
-    width: 97%;
-    padding: 13px;
-    border: none;
-    border-radius: 8px;
-    background: #0b5ed7;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-#loginError {
-    color: red;
-    margin-top: 15px;
-}
-
-</style><style>
-
-body {
-    overflow: hidden;
-}
-
-#adminContent {
-    display: none;
-}
-
-</style>
-<script>
-
-document.querySelectorAll(".admin-menu button").forEach(function(button) {
-
-    button.addEventListener("click", function() {
-        window.scrollTo({
-            top: document.querySelector(".admin-section[style*='block']").offsetTop,
-            behavior: "smooth"
-        });
-    });
-
-});
-
-</script><footer style="text-align:center; padding:25px; margin-top:30px;">
-    <p>© 2026 BD Biggest Platform Ltd. All Rights Reserved.</p>
-</footer>
-</div>
