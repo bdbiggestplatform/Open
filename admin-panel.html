@@ -223,20 +223,22 @@ body{
             Logout
         </button>
 
-    </div>    <div
-        id="applications"
-        class="admin-section active">
+    </div>    
+<div
+  id="applications"
+  class="admin-section active">
 
-        <div class="card">
+  <div class="card">
 
-            <h2>Applications</h2>
+    <h2>Applications</h2>
 
-            <p>
-                Candidate applications
-                will appear here.
-            </p>
+    <div id="applicationList">
+      Loading applications...
+    </div>
 
-        </div>
+  </div>
+
+</div>
 
         <div id="applicationList">
 
@@ -449,8 +451,7 @@ async function loadApplications() {
 
     if (result.success) {
 
-  const section = document.getElementById("applications");
-
+  const section = document.getElementById("applicationList");
   if (section) {
 
     let html = "<h2>Applications</h2>";
