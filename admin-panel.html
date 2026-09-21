@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin Panel - BD Biggest Platform Ltd</title><style>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Admin Panel</title>
+
+<style>
 
 *{
     box-sizing:border-box;
-    margin:0;
-    padding:0;
 }
 
 body{
+    margin:0;
     font-family:Arial,sans-serif;
     background:#f1f5f9;
-    color:#222;
-}.login-box{
+}
+
+.login-box{
     width:92%;
     max-width:400px;
     margin:80px auto;
-    background:white;
     padding:30px;
+    background:white;
     border-radius:15px;
-    box-shadow:0 5px 25px rgba(0,0,0,0.12);
+    box-shadow:0 5px 20px rgba(0,0,0,0.12);
 }
 
 .login-box h1{
     text-align:center;
     color:#0d6efd;
-    margin-bottom:8px;
 }
 
 .login-box p{
     text-align:center;
     color:#777;
-    margin-bottom:25px;
 }
 
 .login-box input{
     width:100%;
     padding:13px;
-    margin-bottom:15px;
+    margin-top:12px;
     border:1px solid #ddd;
     border-radius:8px;
     font-size:16px;
@@ -50,7 +53,8 @@ body{
 .login-box button{
     width:100%;
     padding:13px;
-    border:none;
+    margin-top:15px;
+    border:0;
     border-radius:8px;
     background:#0d6efd;
     color:white;
@@ -58,9 +62,9 @@ body{
 }
 
 #errorMessage{
-    color:red;
-    text-align:center;
     margin-top:12px;
+    text-align:center;
+    color:red;
 }#adminPanel{
     display:none;
 }
@@ -73,7 +77,11 @@ body{
 }
 
 .admin-header h1{
-    margin-bottom:6px;
+    margin:0 0 8px 0;
+}
+
+.admin-header p{
+    margin:0;
 }
 
 .admin-menu{
@@ -82,19 +90,20 @@ body{
     flex-wrap:wrap;
     padding:15px;
     background:white;
-    box-shadow:0 2px 8px rgba(0,0,0,0.08);
 }
 
 .admin-menu button{
     flex:1;
     min-width:120px;
-    padding:12px 15px;
-    border:none;
+    padding:12px;
+    border:0;
     border-radius:8px;
     background:#0d6efd;
     color:white;
     font-size:15px;
-}.admin-menu button:hover{
+}
+
+.admin-menu button:hover{
     background:#0958c7;
 }
 
@@ -104,7 +113,7 @@ body{
 
 .admin-section{
     display:none;
-    padding:20px;
+    padding:15px;
 }
 
 .admin-section.active{
@@ -115,123 +124,16 @@ body{
     background:white;
     padding:20px;
     border-radius:12px;
-    margin-bottom:20px;
-    box-shadow:0 3px 12px rgba(0,0,0,0.08);
+    margin-bottom:15px;
 }
 
 .card h2{
-    margin-bottom:15px;
+    margin-top:0;
     color:#0d6efd;
-}
-
-.application{
-    background:white;
-    border:1px solid #ddd;
-    border-radius:10px;
-    padding:15px;
-    margin-bottom:15px;
-}
-
-.application h3{
-    margin-bottom:10px;
-}
-
-.application p{
-    margin:6px 0;
-}
-
-.status{
-    display:inline-block;
-    padding:6px 10px;
-    border-radius:6px;
-    margin-top:8px;
-    font-size:13px;
-}
-
-.pending{
-    background:#fff3cd;
-    color:#856404;
-}
-
-.approved{
-    background:#d1e7dd;
-    color:#0f5132;
-}
-
-.rejected{
-    background:#f8d7da;
-    color:#842029;
-}.action-buttons{
-    margin-top:12px;
-}
-
-.action-buttons button{
-    padding:8px 12px;
-    border:none;
-    border-radius:6px;
-    color:white;
-    cursor:pointer;
-    margin-right:6px;
-}
-
-.approve{
-    background:#198754;
-}
-
-.reject{
-    background:#dc3545;
-}
-
-.employee{
-    background:white;
-    border:1px solid #ddd;
-    padding:15px;
-    border-radius:10px;
-    margin-bottom:10px;
-}
-
-.employee strong{
-    color:#0d6efd;
-}
-
-.setting-input{
-    width:100%;
-    padding:12px;
-    border:1px solid #ddd;
-    border-radius:8px;
-    margin-top:8px;
-    margin-bottom:15px;
-}
-
-.save-btn{
-    background:#198754;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-@media(max-width:600px){
-
-    .admin-menu{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-    }
-
-    .admin-menu button{
-        min-width:0;
-    }
-
-    .admin-section{
-        padding:12px;
-    }
-
 }
 
 </style>
-</head>
-<body>
+</head><body>
 
 <div id="loginScreen">
 
@@ -300,10 +202,10 @@ body{
 
         <div class="card">
 
-            <h2>Job Applications</h2>
+            <h2>Applications</h2>
 
             <p>
-                Applications submitted by candidates
+                Candidate applications
                 will appear here.
             </p>
 
@@ -311,17 +213,14 @@ body{
 
         <div id="applicationList">
 
-            <div class="application">
+            <div class="card">
 
-                <h3>Applications</h3>
+                <h3>No Applications Yet</h3>
 
                 <p>
-                    No application data loaded yet.
+                    Application data will be
+                    connected from Google Sheets.
                 </p>
-
-                <span class="status pending">
-                    Waiting
-                </span>
 
             </div>
 
@@ -339,29 +238,9 @@ body{
             <h2>Employees</h2>
 
             <p>
-                Employee information will appear here.
+                Employee information
+                will appear here.
             </p>
-
-        </div>
-
-        <div id="employeeList">
-
-            <div class="employee">
-
-                <strong>Employee ID:</strong>
-                Waiting for data...
-
-                <br><br>
-
-                <strong>Name:</strong>
-                Waiting for data...
-
-                <br><br>
-
-                <strong>Status:</strong>
-                Waiting for data...
-
-            </div>
 
         </div>
 
@@ -371,47 +250,58 @@ body{
 
         <div class="card">
 
-            <h2>Admin Settings</h2>
+            <h2>Settings</h2>
 
-            <label>
-                Company Name
-            </label>
+            <label>Company Name</label>
 
             <input
-                class="setting-input"
                 type="text"
                 id="companyName"
                 value="BD Biggest Platform Ltd"
+                style="
+                width:100%;
+                padding:12px;
+                margin-top:8px;
+                margin-bottom:15px;
+                border:1px solid #ddd;
+                border-radius:8px;
+                "
             >
 
-            <label>
-                Contact Email
-            </label>
+            <label>Contact Email</label>
 
             <input
-                class="setting-input"
                 type="email"
                 id="contactEmail"
                 value="bangladeshbiggestplatform@gmail.com"
+                style="
+                width:100%;
+                padding:12px;
+                margin-top:8px;
+                margin-bottom:15px;
+                border:1px solid #ddd;
+                border-radius:8px;
+                "
             >
 
             <button
-                class="save-btn"
-                onclick="saveSettings()">
-
+                onclick="saveSettings()"
+                style="
+                padding:12px 20px;
+                border:0;
+                border-radius:8px;
+                background:#198754;
+                color:white;
+                "
+            >
                 Save Settings
-
             </button>
 
-            <p
-                id="saveMessage"
-                style="margin-top:12px;color:green;">
-            </p>
+            <p id="saveMessage"></p>
 
         </div>
 
     </div>
-
 
 </div>
 
@@ -419,10 +309,10 @@ body{
 <script>function adminLogin(){
 
     const username =
-        document.getElementById("adminUsername").value.trim();
+        document.getElementById("adminUsername").value;
 
     const password =
-        document.getElementById("adminPassword").value.trim();
+        document.getElementById("adminPassword").value;
 
     if(
         username === "admin" &&
@@ -453,15 +343,6 @@ function adminLogout(){
     document.getElementById("loginScreen").style.display =
         "block";
 
-    document.getElementById("adminUsername").value =
-        "";
-
-    document.getElementById("adminPassword").value =
-        "";
-
-    document.getElementById("errorMessage").innerText =
-        "";
-
 }
 
 
@@ -476,47 +357,11 @@ function showSection(sectionId){
 
     });
 
-    const selected =
-        document.getElementById(sectionId);
+    document
+        .getElementById(sectionId)
+        .classList.add("active");
 
-    if(selected){
-
-        selected.classList.add("active");
-
-    }
-function approveApplication(button){
-
-    const application =
-        button.closest(".application");
-
-    const status =
-        application.querySelector(".status");
-
-    status.innerText = "Approved";
-
-    status.className =
-        "status approved";
-
-}
-
-
-function rejectApplication(button){
-
-    const application =
-        button.closest(".application");
-
-    const status =
-        application.querySelector(".status");
-
-    status.innerText = "Rejected";
-
-    status.className =
-        "status rejected";
-
-    }
-}
-
-function saveSettings(){
+}function saveSettings(){
 
     const company =
         document.getElementById("companyName").value;
@@ -565,6 +410,7 @@ window.onload = function(){
     }
 
 };
+
 </script>
 
 </body>
