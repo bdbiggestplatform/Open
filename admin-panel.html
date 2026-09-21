@@ -410,7 +410,34 @@ window.onload = function(){
     }
 
 };
+const API_URL = "https://script.google.com/macros/s/AKfycbxVmW-0fb3_WFAj3bCzy9W9PBr4IzhcCdJOcFYaxjnA3YUCO_sD4aLHSrYTScDIJqx5/exec";
 
+async function loadApplications() {
+
+  try {
+
+    const response = await fetch(API_URL);
+
+    const result = await response.json();
+
+    if (result.success) {
+
+      console.log("Applications loaded:", result.applications);
+
+    } else {
+
+      console.log("Failed to load applications");
+
+    }
+
+  } catch (error) {
+
+    console.log("API Error:", error);
+
+  }
+
+}
+loadApplications();
 </script>
 
 </body>
